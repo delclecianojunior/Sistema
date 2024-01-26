@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="comissao.css">
+    <title>Comissoes</title>
+</head>
+
+<body>
+  <header>
+    <h1 class="titulo">Comissões</h1>
+  </header>
+
+  <section>
+   
+    <div class="exibir-comissao">
+        <button class="botao-exibir" id="exibirComissoesBtn">Exibir Comissão</button>
+      </div>
+
+      <div class="voltar-pagina">
+        <a href="../sistema.html"><button>Voltar pro Sistema</button></a>
+      </div>
+
+  
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Vendedor</th>
+              <th scope="col">Venda</th>
+              <th scope="col">Valor da Comissão</th>
+              <th scope="col">Data do Cálculo</th>
+            </tr>
+          </thead>
+          <tbody id="comissoesTableBody"></tbody>
+        </table>
+      </div>
+  </section>
+
+  <script src="comissoes.js"></script>
+  
+</body>
+</html>

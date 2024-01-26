@@ -1,0 +1,46 @@
+.titulo
+{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.criar-venda
+{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.mostrar-vendas
+{
+    text-align: center;
+}
+
+.voltar-pagina
+{
+    text-align: center;
+}
+
+.voltar-pagina
+{
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Adicione estilos específicos para a classe detalhesVenda */
+.detalhesVenda {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-top: 10px; /* Adiciona um espaço entre o botão Detalhes e os detalhes da venda */
+}
+
+/* Estilos para a lista de detalhes */
+.detalhesVenda ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Estilos para cada item da lista */
+.detalhesVenda li {
+    margin-bottom: 5px;
+}

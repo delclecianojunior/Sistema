@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="venda.css">
+    <title>Vendas</title>
+</head>
+
+<body>
+  <header>
+    <h1 class="titulo">Criar uma Venda</h1>
+  </header>
+
+  <section>
+    <div class="container mt-4">
+      <form id="formVenda">
+
+        <div class="mb-3">
+            <label for="dataVenda">Data da Venda:</label>
+            <input type="datetime-local" class="form-control" id="dataVenda" required>
+        </div>
+    
+        <div class="mb-3">
+            <label for="usuarioId">ID do Usuário:</label>
+            <input type="text" class="form-control" id="usuarioId" required>
+        </div>
+    
+        <div class="mb-3">
+            <label for="vendedorId">ID do Vendedor:</label>
+            <input type="text" class="form-control" id="vendedorId" required>
+        </div>
+    
+        <!-- Campos para o primeiro produto (inicialmente ocultos) -->
+        <div class="mb-3 produtoCampos" style="display: none">
+          <label for="produtoId">ID do Produto:</label>
+          <input type="text" class="form-control produtoId" name="produtoId[]" required>
+
+          <label for="quantidade">Quantidade:</label>
+          <input type="number" class="form-control quantidade" name="quantidade[]" required>
+
+          <!-- Botão para remover o produto (será exibido dinamicamente) -->
+          <button type="button" class="btn btn-danger mt-2 btnRemoverProduto" style="display: none" onclick="removerProduto(this)">Remover Produto</button>
+       </div>
+
+       <!-- Botão para adicionar mais produtos -->
+       <button type="button" class="btn btn-secondary mb-3" onclick="adicionarProduto()">Adicionar Item</button>
+     </form>
+
+     <hr>
+     
+     <button type="button" class="btn btn-primary" onclick="criarVenda()">Criar Venda</button>
+     
+    </div>
+
+  </section>
+
+
+  <div class="voltar-pagina">
+    <a href="vendas.html"><button>Voltar</button></a>
+  </div>
+
+  <script src="CriarVenda.js"></script>
+</body>
+
+
+</html>

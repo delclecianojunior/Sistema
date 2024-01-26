@@ -1,0 +1,28 @@
+.titulo-sistema
+{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.card-personalizado 
+{
+    border: 2px solid #0054a4;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+
+.button-container
+{
+    margin-top: 10px;
+}
+
+.btn-enter {
+    color: #000;
+    cursor: pointer;
+}
+
+.btn-enter:hover {
+    background-color: #0054a4;
+}

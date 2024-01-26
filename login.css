@@ -1,0 +1,51 @@
+label {
+    display: block;
+}
+
+.global{
+    margin-top: 40px;
+}
+
+.botao-logar{
+    margin-top: 20px;
+}
+
+.campos{
+    font-weight: bold;
+    color: black;
+}
+
+.campo-senha
+{
+    margin-bottom: 15px;
+}
+
+input
+{
+    width: 285px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 3px solid #ced4da
+}
+
+input:focus
+{
+    outline: none;
+    box-shadow: none;
+    border-color: #0d6efd;
+}
+
+.titulo-login
+{
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+/* .loginForm
+{
+    text-align: center;
+    margin-top: 50vh;
+} */
