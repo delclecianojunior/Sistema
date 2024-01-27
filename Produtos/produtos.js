@@ -31,7 +31,7 @@ document.getElementById('mostrarProdutosBtn').addEventListener('click', function
 function criarFormularioProduto(produto) {
     const formulario = document.createElement('form');
     formulario.classList.add('produto-form');
-    formulario.style.border = '5px solid #ccc';
+    formulario.style.border = '5px solid #0054a4';
     formulario.style.marginBottom = '30px'; // Adiciona espaço entre os formulários
     formulario.style.marginTop = '10px';
     formulario.style.padding = '10px'; // Adiciona padding dentro dos campos de input

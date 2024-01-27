@@ -4,7 +4,7 @@
     margin-bottom: 25px;
 }
 
-.card-personalizado 
+/* .card-personalizado 
 {
     border: 2px solid #0054a4;
     border-radius: 10px;
@@ -25,4 +25,61 @@
 
 .btn-enter:hover {
     background-color: #0054a4;
+} */
+
+.container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    border: 2px solid #0054a4;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    flex-basis: calc(33.333% - 40px);
+    display: flex;
+    flex-direction: column; /* Certifica-se de que o conteúdo está alinhado verticalmente */
+    justify-content: space-between; /* Distribui uniformemente o espaço entre os filhos */
+}
+
+.button-container {
+    margin-top: auto; /* Move a parte inferior do container para o final da div .card */
+}
+
+.button-container button {
+    margin: 10px 0;
+    margin-bottom: 20px;
+}
+
+.btn-enter {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-enter:hover {
+    background-color: #0069d9;
+    cursor: pointer;
+}
+
+/* Ajustes para responsividade, se necessário */
+@media (max-width: 800px) {
+    .card {
+        flex-basis: calc(50% - 40px);
+    }
+}
+
+@media (max-width: 500px) {
+    .card {
+        flex-basis: calc(100% - 40px);
+    }
 }

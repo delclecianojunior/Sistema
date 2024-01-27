@@ -32,7 +32,7 @@ function criarFormularioUsuario(usuario) {
    
     const formulario = document.createElement('form');
     formulario.classList.add('usuario-form');
-    formulario.style.border = '5px solid #ccc';
+    formulario.style.border = '5px solid #0054a4';
     formulario.style.marginBottom = '30px'; // Adiciona espaço entre os formulários
     formulario.style.marginTop = '10px'; // Adiciona espaço entre os formulários
     formulario.style.padding = '10px'; // Adiciona padding dentro dos campos de input
