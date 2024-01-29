@@ -26,20 +26,19 @@ document.getElementById('mostrarUsuariosBtn').addEventListener('click', function
         });
 });
 
-
 // Função para criar um formulário de usuário
 function criarFormularioUsuario(usuario) {
-   
     const formulario = document.createElement('form');
     formulario.classList.add('usuario-form');
     formulario.style.border = '5px solid #0054a4';
-    formulario.style.marginBottom = '30px'; // Adiciona espaço entre os formulários
-    formulario.style.marginTop = '10px'; // Adiciona espaço entre os formulários
-    formulario.style.padding = '10px'; // Adiciona padding dentro dos campos de input
-    
-    // Aumenta a largura dos campos de entrada
+    formulario.style.marginBottom = '30px';
+    formulario.style.marginTop = '10px';
+    formulario.style.padding = '10px';
+    formulario.style.maxWidth = '600px';
+    formulario.style.boxSizing = 'border-box';
+
     const larguraInput = '320px';
-    
+
     const campos = [
         { label: 'Nome:', valor: usuario.nome },
         { label: 'Data de Nascimento:', valor: formatarDataParaExibicao(usuario.data_Nascimento) },
@@ -47,45 +46,65 @@ function criarFormularioUsuario(usuario) {
         { label: 'Senha:', valor: usuario.senha },
         { label: 'Email:', valor: usuario.email }
     ];
-    
-    // Itera sobre os campos para criar os campos de formulário
+
     campos.forEach(campo => {
         const container = document.createElement('div');
         container.style.display = 'flex';
-        container.style.flexDirection = 'column'; // Coloca a label acima do campo de entrada
-        container.style.marginBottom = '10px'; // Adiciona espaço entre os campos
-    
+        container.style.flexDirection = 'column';
+        container.style.marginBottom = '10px';
+
         const label = criarLabel(campo.label);
         const input = criarInput(campo.valor, 'text');
         input.disabled = true;
-        input.style.width = larguraInput; // Define a largura fixa para todos os inputs
-        input.style.padding = '5px'; // Adiciona padding dentro dos campos de input
-        input.style.marginLeft = '10px'; // Adiciona margem à esquerda para separar o rótulo do campo
-    
+        
+        // Adicionando lógica para ajustar a largura dos inputs
+        if (window.innerWidth < 600) {
+            input.style.width = '200px';
+        } else if (window.innerWidth < 520) {
+            input.style.width = '100px';
+        } else {
+            input.style.width = larguraInput;
+        }
+
+        input.style.padding = '5px';
+        input.style.marginLeft = '10px';
+
         container.appendChild(label);
         container.appendChild(input);
-    
+
         formulario.appendChild(container);
     });
-    
-    // Criação do campo ID após o loop forEach
+
     const idContainer = document.createElement('div');
     idContainer.style.display = 'flex';
-    idContainer.style.flexDirection = 'column'; // Coloca a label acima do campo de entrada
-    idContainer.style.marginBottom = '10px'; // Adiciona espaço entre os campos
-    
+    idContainer.style.flexDirection = 'column';
+    idContainer.style.marginBottom = '10px';
+
     const idLabel = criarLabel('Id:');
     const idInput = criarInput(usuario.id, 'hidden');
     idInput.id = 'idUsuario';
     idInput.name = 'idUsuario';
-    idInput.style.width = larguraInput; // Define a largura fixa para todos os inputs
-    idInput.style.padding = '5px'; // Adiciona padding dentro dos campos de input
-    idInput.style.marginLeft = '10px'; // Adiciona margem à esquerda para separar o rótulo do campo
-    
+    idInput.readOnly = true;
+
+    // Adicionando lógica para ajustar a largura do input do ID
+    if (window.innerWidth < 600) {
+        idInput.style.width = '200px';
+    } else if (window.innerWidth < 520) {
+        idInput.style.width = '100px';
+    } else {
+        idInput.style.width = larguraInput;
+    }
+
+    idInput.style.padding = '5px';
+    idInput.style.marginLeft = '10px';
+
     idContainer.appendChild(idLabel);
     idContainer.appendChild(idInput);
-    
+
     formulario.appendChild(idContainer);
+
+    const botoesContainer = document.createElement('div');
+    botoesContainer.classList.add('botoes-centro');
 
     const botaoEditar = criarBotao('Editar', (event) => {
         event.preventDefault();
@@ -94,14 +113,19 @@ function criarFormularioUsuario(usuario) {
         redirecionarParaEdicao(idUsuario);
     });
 
-    // Adiciona uma margem à direita do botão Editar
-    botaoEditar.style.marginRight = '5px';
+    // Adicionando lógica para ajustar a largura dos botões
+    if (window.innerWidth < 600) {
+        botaoEditar.style.width = '100%';
+    } else {
+        botaoEditar.style.width = 'calc(50% - 5px)';
+    }
+
+    botaoEditar.style.marginRight = '10px';
 
     const botaoRemover = criarBotao('Remover', (event) => {
         event.preventDefault();
         const idUsuario = formulario.querySelector('input[name="idUsuario"]').value;
-    
-        // Lógica para remover o usuário
+
         fetch(`https://localhost:7137/api/usuarios/${idUsuario}`, {
             method: 'DELETE',
             headers: {
@@ -110,20 +134,19 @@ function criarFormularioUsuario(usuario) {
         })
         .then(response => {
             if (response.ok) {
-                // Verifica se o tipo de conteúdo da resposta é JSON
                 const contentType = response.headers.get("content-type");
                 if (contentType && contentType.indexOf("application/json") !== -1) {
-                    return response.json(); // Processa como JSON
+                    return response.json();
                 } else {
-                    return response.text(); // Processa como texto
+                    return response.text();
                 }
             } else {
                 throw new Error('Algo deu errado no servidor');
             }
         })
         .then(data => {
-            alert(data); // Exibe a mensagem, seja ela JSON ou texto
-            formulario.remove(); // Remove o formulário do DOM
+            alert(data);
+            formulario.remove();
         })
         .catch(error => {
             console.error('Erro:', error);
@@ -131,11 +154,53 @@ function criarFormularioUsuario(usuario) {
         });
     });
 
-    adicionarAoFormulario(formulario, botaoEditar, botaoRemover);
+    // Adicionando lógica para ajustar a largura dos botões
+    if (window.innerWidth < 600) {
+        botaoRemover.style.width = '100%';
+    } else {
+        botaoRemover.style.width = 'calc(50% - 5px)';
+    }
+
+    botoesContainer.appendChild(botaoEditar);
+    botoesContainer.appendChild(botaoRemover);
+    formulario.appendChild(botoesContainer);
 
     return formulario;
 }
 
+
+// Adicionando um listener para ajustar o layout quando o tamanho da tela mudar
+window.addEventListener('resize', () => {
+    const inputs = document.querySelectorAll('.usuario-form input[type="text"]');
+    const idInput = document.querySelector('.usuario-form input[type="hidden"]');
+    const buttons = document.querySelectorAll('.botoes-centro button');
+
+    inputs.forEach(input => {
+        if (window.innerWidth < 626) {
+            input.style.width = '200px';
+        } else if (window.innerWidth < 520) {
+            input.style.width = '100px';
+        } else {
+            input.style.width = '320px';
+        }
+    });
+
+    if (window.innerWidth < 626) {
+        idInput.style.width = '200px';
+    } else if (window.innerWidth < 520) {
+        idInput.style.width = '100px';
+    } else {
+        idInput.style.width = '320px';
+    }
+
+    buttons.forEach(button => {
+        if (window.innerWidth < 626) {
+            button.style.width = '100%';
+        } else {
+            button.style.width = 'calc(50% - 5px)';
+        }
+    });
+});
 
 
 function criarBotao(texto, onClick) {

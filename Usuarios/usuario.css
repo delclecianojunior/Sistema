@@ -1,27 +1,93 @@
-.titulo
-{
-    text-align: center;
-    margin-top: 10px;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
-.cadastrar-usuarios
-{
-    text-align: center;
-    margin-bottom: 20px;
+.navbar {
+    height: 400px;
+    width: 200px; /* Largura da navbar */
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+
+.navbar a {
+    padding: 6px 8px; /* Ajusta o padding interno */
+    margin-bottom: 0px; /* Reduzido o espaço entre os itens */
+    text-decoration: none;
+    font-size: 15px;
+    color: #818181;
+    display: block;
 }
 
-.mostrar-usuarios
-{
-    text-align: center;
+
+.navbar a:hover {
+    color: #f1f1f1;
 }
 
-.voltar-pagina
-{
-    text-align: center;
+.section {
+    margin-left: 200px; /* Mesma largura da navbar */
+    padding: 0px 10px;
 }
 
-.voltar-pagina
-{
+.nav-title {
+    padding: 6px 16px;
+    margin: 0; /* Remove a margem padrão do h1 */
+    font-size: 30px; /* Ajuste o tamanho da fonte conforme necessário */
+    color: white;
     text-align: center;
-    margin-top: 20px;
+    background-color: #111;
+}
+
+button {
+    padding: 8px;
+    border: none;
+    background-color: #111;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #575757;
+}
+
+.botoes-centro {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+
+#usuariosContainer {
+    margin-left: 220px; /* Ajuste esta margem para alinhar com a largura da sua navbar */
+    padding: 20px;
+}
+
+
+/* Adicione isso no seu CSS existente */
+@media only screen and (max-width: 623px) {
+    .usuario-form input[type="text"] {
+        width: calc(100% - 20px); /* Ajuste conforme necessário */
+        margin-bottom: 10px; /* Adiciona espaço entre os campos em telas menores */
+    }
+
+    .usuario-form input[type="hidden"] {
+        width: calc(100% - 20px); /* Ajuste conforme necessário */
+    }
+
+    .botoes-centro button {
+        width: calc(50% - 5px); /* Ajuste conforme necessário */
+        margin-right: 5px; /* Adiciona algum espaço entre os botões */
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .usuario-form {
+        max-width: 100%; /* Ajustar a largura do formulário para ocupar toda a largura disponível */
+        padding: 5px; /* Reduzir o padding do formulário */
+    }
 }

@@ -14,33 +14,18 @@
     <link rel="stylesheet" type="text/css" href="usuario.css">
     <title>Usuarios</title>
 </head>
-
 <body>
-  <header>
-    <h1 class="titulo">Usuários</h1>
-  </header>
+  <nav class="navbar">
+    <h1  class="nav-title">Usuários</h1>
+    <a href="CadastrarUsuario.html"><button>Cadastrar Usuários</button></a>
+    <a id="mostrarUsuariosLink"><button id="mostrarUsuariosBtn">Mostrar Usuários</button></a>
+    <a href="../sistema.html"><button>Voltar pro Sistema</button></a>
+  </nav>
 
-  <section>
-
-    <div class="cadastrar-usuarios">
-        <a href="CadastrarUsuario.html"><button>Cadastrar Usuarios</button></a>
-    </div>
-
-    <div class="mostrar-usuarios">
-      <button id="mostrarUsuariosBtn">Mostrar Usuários</button>
-    </div>
-
-    <div class="voltar-pagina">
-      <a href="../sistema.html"><button>Voltar pro Sistema</button></a>
-    </div>
-
-    <div id="usuariosContainer"></div>
+  <section id="usuariosContainer">
   </section>
 
-
   <script src="usuarios.js"></script>
-  
 </body>
-
 
 </html>
