@@ -16,26 +16,38 @@
 </head>
 
 <body>
-  <header>
-    <h1 class="titulo">Vendedores</h1>
-  </header>
 
-  <section>
-
-    <div class="cadastrar-vendedores">
-        <a href="CadastrarVendedor.html"><button>Cadastrar Vendedor</button></a>
+  <div class="sidebar" id="sidebar">
+    <h1 class="nav-title">Vendedores</h1>
+    <div class="buttons-container">
+      <a href="CadastrarVendedor.html">
+          <button><i class="fas fa-user-plus"></i> Cadastrar</button>
+      </a>
+      <a id="mostrarVendedoresLink">
+          <button id="mostrarVendedoresBtn"><i class="fas fa-users"></i> Mostrar Vendedores</button>
+      </a>
+      <a href="../sistema.html">
+        <button><i class="fas fa-arrow-left"></i> Voltar pro Sistema</button>
+      </a>
     </div>
+  </div>
 
-    <div class="mostrar-vendedores">
-      <button id="mostrarVendedoresBtn">Mostrar Vendedores</button>
-    </div>
 
-    <div class="voltar-pagina">
-      <a href="../sistema.html"><button>Voltar pro Sistema</button></a>
-    </div>
-
-    <div id="vendedoresContainer"></div>
-  </section>
+  <div class="table-responsive tabela-responsiva" id="vendedoresContainer" style="display: none;">
+    <table class="table table-striped" id="tabelaVendedores">
+        <thead>
+            <tr>
+                <th class="nome-coluna">Nome</th>
+                <th class="nome-coluna">Percentual</th>
+                <th class="nome-coluna">ID Vendedor</th>
+                <th class="nome-coluna">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- As linhas da tabela serão adicionadas aqui pelo JavaScript -->
+        </tbody>
+    </table>
+  </div>
 
   <script src="vendedor.js"></script>
   

@@ -1,46 +1,46 @@
 body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
-    font-family: Arial, sans-serif;
+    padding: 0;
+    display: flex;
 }
 
-.navbar {
-    height: 400px;
-    width: 200px; /* Largura da navbar */
+.sidebar {
+    height: 100%;
+    width: 250px;
     position: fixed;
-    z-index: 1;
     top: 0;
     left: 0;
     background-color: #111;
     overflow-x: hidden;
-    padding-top: 20px;
-  }
-
-.navbar a {
-    padding: 6px 8px; /* Ajusta o padding interno */
-    margin-bottom: 0px; /* Reduzido o espaço entre os itens */
-    text-decoration: none;
-    font-size: 15px;
-    color: #818181;
-    display: block;
+    padding-top: 60px;
+    color: white;
 }
 
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
 
-.navbar a:hover {
+.sidebar a:hover {
     color: #f1f1f1;
 }
 
-.section {
-    margin-left: 200px; /* Mesma largura da navbar */
-    padding: 0px 10px;
+.sidebar .nav-title {
+    font-size: 36px;
+    text-align: center;
+    padding: 16px;
 }
 
-.nav-title {
-    padding: 6px 16px;
-    margin: 0; /* Remove a margem padrão do h1 */
-    font-size: 30px; /* Ajuste o tamanho da fonte conforme necessário */
-    color: white;
-    text-align: center;
-    background-color: #111;
+#usuariosContainer {
+    margin-left: 250px; /* Ajuste de acordo com a largura da sidebar */
+    padding: 20px;
+    position: relative;
+    z-index: 1; /* Garanta que a tabela esteja na frente da barra lateral */
 }
 
 button {
@@ -55,39 +55,61 @@ button:hover {
     background-color: #575757;
 }
 
-.botoes-centro {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
+.botoes-acoes {
+    margin-right: 2px;  /* ou o valor desejado */
 }
 
-
-#usuariosContainer {
-    margin-left: 220px; /* Ajuste esta margem para alinhar com a largura da sua navbar */
-    padding: 20px;
+.tabela-responsiva {
+    overflow-x: auto;
 }
 
+.nome-coluna {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
-/* Adicione isso no seu CSS existente */
-@media only screen and (max-width: 623px) {
-    .usuario-form input[type="text"] {
-        width: calc(100% - 20px); /* Ajuste conforme necessário */
-        margin-bottom: 10px; /* Adiciona espaço entre os campos em telas menores */
+@media screen and (max-width: 600px) {
+    .sidebar {
+        width: 150px;
+        padding-top: 15px;
     }
 
-    .usuario-form input[type="hidden"] {
-        width: calc(100% - 20px); /* Ajuste conforme necessário */
+    .sidebar a, .sidebar .nav-title {
+        display: none;
     }
 
-    .botoes-centro button {
-        width: calc(50% - 5px); /* Ajuste conforme necessário */
-        margin-right: 5px; /* Adiciona algum espaço entre os botões */
+    .buttons-container a {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    button {
+        padding: 6px;
+    }
+
+    #usuariosContainer {
+        width: calc(100% - 150px); /* Ajuste de acordo com a largura da sidebar */
+        padding: 10px;
+    }
+
+    .nome-coluna {
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    table tbody td {
+        font-size: 12px;
+    }
+
+    #usuariosContainer {
+        width: calc(100% - 150px); /* Ajuste de acordo com a largura da sidebar */
+        padding: 20px;
+        margin-left: 152px; /* Remova a margem esquerda para aproximar da sidebar */
     }
 }
 
-@media only screen and (max-width: 480px) {
-    .usuario-form {
-        max-width: 100%; /* Ajustar a largura do formulário para ocupar toda a largura disponível */
-        padding: 5px; /* Reduzir o padding do formulário */
-    }
-}
+/* .section {
+    margin-left: 200px;
+    padding: 0px 10px;
+} */

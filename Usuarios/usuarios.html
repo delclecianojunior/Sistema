@@ -15,17 +15,41 @@
     <title>Usuarios</title>
 </head>
 <body>
-  <nav class="navbar">
-    <h1  class="nav-title">Usuários</h1>
-    <a href="CadastrarUsuario.html"><button>Cadastrar Usuários</button></a>
-    <a id="mostrarUsuariosLink"><button id="mostrarUsuariosBtn">Mostrar Usuários</button></a>
-    <a href="../sistema.html"><button>Voltar pro Sistema</button></a>
-  </nav>
+  <div class="sidebar" id="sidebar">
+    <h1 class="nav-title">Usuários</h1>
+    <div class="buttons-container">
+      <a href="CadastrarUsuario.html">
+          <button><i class="fas fa-user-plus"></i> Cadastrar Usuários</button>
+      </a>
+      <a id="mostrarUsuariosLink">
+          <button id="mostrarUsuariosBtn"><i class="fas fa-users"></i> Mostrar Usuários</button>
+      </a>
+      <a href="../sistema.html">
+        <button><i class="fas fa-arrow-left"></i> Voltar pro Sistema</button>
+      </a>
+    </div>
+  </div>
 
-  <section id="usuariosContainer">
-  </section>
 
-  <script src="usuarios.js"></script>
+  <div class="table-responsive tabela-responsiva" id="usuariosContainer" style="display: none;">
+    <table class="table table-striped" id="tabelaUsuarios">
+        <thead>
+            <tr>
+                <th class="nome-coluna">Nome</th>
+                <th class="nome-coluna">Data de Nascimento</th>
+                <th class="nome-coluna">CPF</th>
+                <th class="nome-coluna">Senha</th>
+                <th class="nome-coluna">Email</th>
+                <th class="nome-coluna">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- As linhas da tabela serão adicionadas aqui pelo JavaScript -->
+        </tbody>
+    </table>
+  </div>
+
+  <script src="usuarios.js" defer></script>
 </body>
 
 </html>

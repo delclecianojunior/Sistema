@@ -62,6 +62,8 @@ document.querySelector('.editar-cadastro').addEventListener('click', function (e
         email: document.getElementById('email').value
     };
 
+    console.log(usuarioAtualizado);
+
     fetch(`https://localhost:7137/api/usuarios`, {
         method: 'PUT',
         headers: {
