@@ -1,22 +1,110 @@
-.titulo
-{
-    text-align: center;
-    margin-top: 10px;
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
 }
 
-.exibir-comissao
-{
-    text-align: center;
-    margin-bottom: 20px;
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 60px;
+    color: white;
 }
 
-.botao-exibir
-{
-    margin-top: 20px;
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
 }
 
-.voltar-pagina
-{
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+.sidebar .nav-title {
+    font-size: 36px;
     text-align: center;
-    margin-bottom: 20px;
+    padding: 16px;
+}
+
+#comissoesContainer {
+    margin-left: 250px; /* Ajuste de acordo com a largura da sidebar */
+    padding: 20px;
+    position: relative;
+    z-index: 1; /* Garanta que a tabela esteja na frente da barra lateral */
+}
+
+button {
+    padding: 8px;
+    border: none;
+    background-color: #111;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #575757;
+}
+
+.botoes-acoes {
+    margin-right: 2px;  /* ou o valor desejado */
+}
+
+.tabela-responsiva {
+    overflow-x: auto;
+}
+
+.nome-coluna {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 600px) {
+    .sidebar {
+        width: 150px;
+        padding-top: 15px;
+    }
+
+    .sidebar a, .sidebar .nav-title {
+        display: none;
+    }
+
+    .buttons-container a {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    button {
+        padding: 6px;
+    }
+
+    #comissoesContainer {
+        width: calc(100% - 150px); /* Ajuste de acordo com a largura da sidebar */
+        padding: 10px;
+    }
+
+    .nome-coluna {
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    table tbody td {
+        font-size: 12px;
+    }
+
+    #comissoesContainer {
+        width: calc(100% - 150px); /* Ajuste de acordo com a largura da sidebar */
+        padding: 20px;
+        margin-left: 152px; /* Remova a margem esquerda para aproximar da sidebar */
+    }
 }

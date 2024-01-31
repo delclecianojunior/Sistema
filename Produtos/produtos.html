@@ -16,26 +16,40 @@
 </head>
 
 <body>
-  <header>
-    <h1 class="titulo">Produtos</h1>
-  </header>
-
-  <section>
-
-    <div class="cadastrar-produtos">
-        <a href="CadastrarProduto.html"><button>Cadastrar Produtos</button></a>
+  
+  <div class="sidebar" id="sidebar">
+    <h1 class="nav-title">Produtos</h1>
+    <div class="buttons-container">
+      <a href="CadastrarProduto.html">
+          <button><i class="fas fa-user-plus"></i> Cadastrar Novo</button>
+      </a>
+      <a id="mostrarProdutosLink">
+          <button id="mostrarProdutosBtn"><i class="fas fa-box"></i> Mostrar Produtos</button>
+      </a>
+      <a href="../sistema.html">
+        <button><i class="fas fa-arrow-left"></i> Voltar pro Sistema</button>
+      </a>
     </div>
+  </div>
 
-    <div class="mostrar-produtos">
-      <button id="mostrarProdutosBtn">Mostrar Produtos</button>
-    </div>
 
-    <div class="voltar-pagina">
-      <a href="../sistema.html"><button>Voltar pro Sistema</button></a>
-    </div>
-
-    <div id="produtosContainer"></div>
-  </section>
+  <div class="table-responsive tabela-responsiva" id="produtosContainer" style="display: none;">
+    <table class="table table-striped" id="tabelaProdutos">
+        <thead>
+            <tr>
+                <th class="nome-coluna">Nome</th>
+                <th class="nome-coluna">Descrição</th>
+                <th class="nome-coluna">Preço</th>
+                <th class="nome-coluna">Id Vendedor</th>
+                <th class="nome-coluna">Id Produto</th>
+                <th class="nome-coluna">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- As linhas da tabela serão adicionadas aqui pelo JavaScript -->
+        </tbody>
+    </table>
+  </div>
 
   <script src="produtos.js"></script>
   

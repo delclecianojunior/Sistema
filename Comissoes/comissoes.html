@@ -16,37 +16,33 @@
 </head>
 
 <body>
-  <header>
-    <h1 class="titulo">Comissões</h1>
-  </header>
-
-  <section>
-   
-    <div class="exibir-comissao">
-        <button class="botao-exibir" id="exibirComissoesBtn">Exibir Comissão</button>
+  <div class="sidebar" id="sidebar">
+      <h1 class="nav-title">Comissões</h1>
+      <div class="buttons-container">
+          <a id="mostrarComissoesLink">
+              <button id="exibirComissoesBtn"><i class="fas fa-chart-line"></i> Exibir Comissões</button>
+          </a>
+          <a href="../sistema.html">
+              <button><i class="fas fa-arrow-left"></i> Voltar pro Sistema</button>
+          </a>
       </div>
+  </div>
 
-      <div class="voltar-pagina">
-        <a href="../sistema.html"><button>Voltar pro Sistema</button></a>
-      </div>
-
-  
-      <div class="table-responsive">
-        <table class="table table-striped">
+  <div class="table-responsive tabela-responsiva" id="comissoesContainer" style="display: none;">
+      <table class="table table-striped">
           <thead>
-            <tr>
-              <th scope="col">Vendedor</th>
-              <th scope="col">Venda</th>
-              <th scope="col">Valor da Comissão</th>
-              <th scope="col">Data do Cálculo</th>
-            </tr>
+              <tr>
+                  <th class="nome-coluna">Vendedor</th>
+                  <th class="nome-coluna">Venda</th>
+                  <th class="nome-coluna">Valor da Comissão</th>
+                  <th class="nome-coluna">Data do Cálculo</th>
+              </tr>
           </thead>
           <tbody id="comissoesTableBody"></tbody>
-        </table>
-      </div>
-  </section>
+      </table>
+  </div>
 
-  <script src="comissoes.js"></script>
-  
+  <script src="comissoes.js" defer></script>
+
 </body>
 </html>

@@ -13,20 +13,20 @@ async function obterNomeVendedor(vendedorId) {
 }
 
 
-document.getElementById('exibirComissoesBtn').addEventListener('click', async function () {
-  try {
+// Função para mostrar a tabela de comissões
+async function mostrarComissoes() {
+    try {
       const response = await fetch('https://localhost:7137/api/comissoes');
       const data = await response.json();
-      console.log(data);
-
+  
       var tbody = document.getElementById('comissoesTableBody');
       tbody.innerHTML = '';
-
+  
       const comissoesComNomes = await Promise.all(data.map(async comissao => {
           const nomeVendedor = await obterNomeVendedor(comissao.vendedorId);
           return {...comissao, nomeVendedor};
       }));
-
+  
       comissoesComNomes.forEach(comissao => {
           var row = tbody.insertRow();
           row.insertCell(0).textContent = comissao.nomeVendedor; 
@@ -34,7 +34,16 @@ document.getElementById('exibirComissoesBtn').addEventListener('click', async fu
           row.insertCell(2).textContent = comissao.valorComissao;
           row.insertCell(3).textContent = new Date(comissao.dataCalculo).toLocaleDateString();
       });
-  } catch (error) {
-      console.error('Erro ao obter dados da API:', error);
-  }
-});
+  
+      // Mostra a tabela
+      document.getElementById('comissoesContainer').style.display = 'block';
+    } catch (error) {
+        console.error('Erro ao obter dados da API:', error);
+    }
+}
+  
+// Event Listener para o botão de exibir comissões
+document.getElementById('exibirComissoesBtn').addEventListener('click', mostrarComissoes);
+
+// Outros event listeners para a sidebar, se necessário
+  

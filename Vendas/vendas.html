@@ -16,26 +16,38 @@
 </head>
 
 <body>
-  <header>
-    <h1 class="titulo">Vendas</h1>
-  </header>
 
-  <section>
-
-    <div class="criar-venda">
-        <a href="CriarVenda.html"><button>Criar Vendas</button></a>
+  <div class="sidebar" id="sidebar">
+    <h1 class="nav-title">Vendas</h1>
+    <div class="buttons-container">
+      <a href="CriarVenda.html">
+          <button><i class="fas fa-user-plus"></i> Cadastrar Novo</button>
+      </a>
+      <a id="mostrarVendasLink">
+          <button id="mostrarVendasBtn"><i class="fas fa-dollar-sign"></i> Mostrar Vendas</button>
+      </a>
+      <a href="../sistema.html">
+        <button><i class="fas fa-arrow-left"></i> Voltar pro Sistema</button>
+      </a>
     </div>
+  </div>
 
-    <div class="mostrar-vendas">
-      <button id="mostrarVendasBtn">Mostrar Vendas</button>
-    </div>
-
-    <div class="voltar-pagina">
-      <a href="../sistema.html"><button>Voltar pro Sistema</button></a>
-    </div>
-
-    <div id="vendasContainer"></div>
-  </section>
+  <div class="table-responsive tabela-responsiva" id="vendasContainer" style="display: none;">
+    <table class="table table-striped" id="tabelaVendas">
+        <thead>
+            <tr>
+                <th class="nome-coluna">Data Venda</th>
+                <th class="nome-coluna">Id Usuario</th>
+                <th class="nome-coluna">ID Vendedor</th>
+                <th class="nome-coluna">ItensVenda</th>
+                <th class="nome-coluna">Detalhes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- As linhas da tabela serão adicionadas aqui pelo JavaScript -->
+        </tbody>
+    </table>
+  </div>
 
   <script src="vendas.js"></script>
   
